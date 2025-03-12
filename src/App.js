@@ -47,9 +47,7 @@ function App() {
   return (
     <div className="container">
       <h1>Personal Finance Visualizer</h1>
-      // Add inside the return statement
-     <Budget transactions={transactions} />
-
+      
       {/* Dashboard Section */}
       <Dashboard transactions={transactions} />
 
@@ -95,6 +93,9 @@ function App() {
 
       {/* Charts Section */}
       <Charts transactions={transactions} />
+      // Add inside the return statement
+     <Budget transactions={transactions} />
+
     </div>
   );
 }

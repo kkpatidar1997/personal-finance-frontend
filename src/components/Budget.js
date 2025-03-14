@@ -8,7 +8,7 @@ const Budget = ({ transactions }) => {
   const [formData, setFormData] = useState({ category: '', amount: '' });
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/budgets')
+    axios.get('https://personal-finance-visualise-backend2.onrender.com/api/budgets')
       .then(response => setBudgets(response.data))
       .catch(error => console.error('Error fetching budgets:', error));
   }, []);
@@ -19,7 +19,7 @@ const Budget = ({ transactions }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/api/budgets', formData)
+    axios.post('https://personal-finance-visualise-backend2.onrender.com/api/budgets', formData)
       .then(response => {
         setBudgets([...budgets, response.data]);
         setFormData({ category: '', amount: '' });
@@ -64,7 +64,7 @@ const Budget = ({ transactions }) => {
         <BarChart width={500} height={300} data={chartData}>
           <XAxis dataKey="category" />
           <YAxis />
-          <Tooltip />
+          {/* <Tooltip /> */}
           <Legend />
           <Tooltip formatter={(value) => `$${value}`} />
           <Bar dataKey="budget" fill="#82ca9d" name="Budget" />
